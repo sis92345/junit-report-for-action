@@ -1,5 +1,5 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
+name: 'Aggregate Junit Result'
+description: 'Aggregate Junit Result for personal use'
 author: 'Your name or organization here'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
@@ -9,15 +9,21 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  report_path:
+    description: 'Junit Report Path'
     required: true
-    default: '1000'
+    default: 'build/junit-test/TEST-*.xml'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  totalCount:
+    description: 'Total Test Count'
+  passed:
+    description: 'passed Test Count'
+  failed:
+    description: 'failed Test Count'
+  skipped:
+    description: 'skipped Test Count'
 
 runs:
   using: node20
