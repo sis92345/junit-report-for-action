@@ -13,15 +13,15 @@ export async function run(): Promise<void> {
     )
 
     // Path를 읽어서 fs 모듈로 파일을 읽은 후 결과 데이터를 반환시킨다.
-    core.startGroup('Start Test Aggregate Processing');
+    core.startGroup('Start Test Aggregate Processing')
 
     const testAggregate = testResultReaderBasedXml.aggregateTestResult(
         testResultReaderBasedXml.parseTestResult(report_path)
     )
-    core.endGroup();
+    core.endGroup()
 
     core.startGroup('Setting Aggregate Result')
-
+    core.info(`Test Case : ${testAggregate.totalCount}`)
     core.setOutput('totalCount', testAggregate.totalCount)
     core.setOutput('passed', testAggregate.passed.count)
     core.setOutput('failed', testAggregate.failed.count)

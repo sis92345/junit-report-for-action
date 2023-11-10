@@ -5157,6 +5157,7 @@ async function run() {
     const testAggregate = testResultReader_1.testResultReaderBasedXml.aggregateTestResult(testResultReader_1.testResultReaderBasedXml.parseTestResult(report_path));
     core.endGroup();
     core.startGroup('Setting Aggregate Result');
+    core.info(`Test Case : ${testAggregate.totalCount}`);
     core.setOutput('totalCount', testAggregate.totalCount);
     core.setOutput('passed', testAggregate.passed.count);
     core.setOutput('failed', testAggregate.failed.count);
