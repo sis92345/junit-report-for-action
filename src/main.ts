@@ -3,8 +3,8 @@ import { testResultReaderBasedXml } from './module/parser/testResultReader'
 import { UserVariable } from './module/util'
 
 /**
- * The main function for the action.
- * @returns {Promise<void>} Resolves when the action is complete.
+ * Action Main Function
+ * @returns {Promise<void>} Action 완료되면 Resolve
  */
 export async function run(): Promise<void> {
     // Action에서 변수를 받는다.
@@ -21,7 +21,10 @@ export async function run(): Promise<void> {
     core.endGroup()
 
     core.startGroup('Setting Aggregate Result')
+
     core.info(`Test Case : ${testAggregate.totalCount}`)
+
+    // 결과를 action에서 사용할 수 있도록 output으로 내보낸다.
     core.setOutput('totalCount', testAggregate.totalCount)
     core.setOutput('passed', testAggregate.passed.count)
     core.setOutput('failed', testAggregate.failed.count)
@@ -29,5 +32,5 @@ export async function run(): Promise<void> {
 
     core.endGroup()
 
-    // 결과를 action에서 사용할 수 있도록 output으로 내보낸다.
+
 }

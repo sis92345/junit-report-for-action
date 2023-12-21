@@ -17,6 +17,9 @@ const _private = {
     },
 }
 
+/**
+ * Junit-Xml Result 기반 테스트를 읽어서 결과를 반환하는 구현제
+ * */
 export const xmlTestParser : TestParser = {
 
     parse(globPattern: string): Suite[] {

@@ -1,5 +1,9 @@
 /**
  * 테스트 결과를 읽고 테스트 결과를 반환시키는 객체
+ *
+ * @property {TestParser} testParser : Test 결과 반환 모듈 구현체
+ * @property {(globPattern: string) => Suite[]}  : Glob Pattern을 받아서 테스트 결과를 반환합니다.
+ * @property {(results : Suite[]) => TestAggregate} : Test 결과를 읽어서 결과를 단일 객체로 반환시킵니다.
  * */
 export interface TestResultReader {
 
